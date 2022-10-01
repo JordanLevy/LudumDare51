@@ -24,15 +24,13 @@ func shuffle():
 	rf_key = controls_list[1]
 	lt_key = controls_list[2]
 	rt_key = controls_list[3]
+	display()
 
 func display():
 	print(controls_list)
 
-func _on_Randomizer_timeout():
-	shuffle()
-	display()
-
 func _ready():
+	GameEvents.connect("ForgetControls", self, "shuffle")
 	#randomize()
 	shuffle()
 	display()
