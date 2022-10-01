@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/ParallaxBackground.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Background/ocean_particles.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Background/water.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fish/Fish_Separated.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Controls.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Music.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FlipperLeft"
@@ -377,3 +378,5 @@ anims/Idle = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 anims/TailLeft = SubResource( 5 )
 anims/TailRight = SubResource( 6 )
+
+[node name="Music" parent="." instance=ExtResource( 6 )]
