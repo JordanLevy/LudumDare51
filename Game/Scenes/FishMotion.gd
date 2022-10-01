@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+export(NodePath) onready var camera = get_node(camera) as Camera2D
 export(NodePath) onready var anim_tail = get_node(anim_tail) as AnimationPlayer
 export(NodePath) onready var anim_lf = get_node(anim_lf) as AnimationPlayer
 export(NodePath) onready var anim_rf = get_node(anim_rf) as AnimationPlayer
@@ -42,7 +43,8 @@ func _physics_process(delta):
 		flipper_side -= 1
 	if rf_down:
 		flipper_side += 1
-	add_torque(linear_velocity.length() * flipper_side * 0.1)
+	add_torque(linear_velocity.length() * flipper_side * 0.2)
+	camera.global_position = global_position
 	
 func use_flipper(side):
 	if side == -1:

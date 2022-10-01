@@ -6,6 +6,11 @@
 [ext_resource path="res://Assets/Fish/Fish_Separated.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Food.tscn" type="PackedScene" id=5]
 
+[sub_resource type="StyleBoxFlat" id=28]
+bg_color = Color( 0.94902, 0.792157, 0.168627, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=27]
+
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 97.1428
 height = 359.714
@@ -970,11 +975,6 @@ tracks/1/keys = {
 "values": [ 15.0, -15.0 ]
 }
 
-[sub_resource type="StyleBoxFlat" id=26]
-bg_color = Color( 0.882353, 0.819608, 0.243137, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=27]
-
 [node name="Main" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -985,6 +985,21 @@ bg_color = Color( 0.882353, 0.819608, 0.243137, 1 )
 scale = Vector2( 50, 50 )
 texture = ExtResource( 2 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 3, 3 )
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D"]
+margin_left = -1544.0
+margin_top = 796.0
+margin_right = 1530.0
+margin_bottom = 888.0
+custom_styles/fg = SubResource( 28 )
+custom_styles/bg = SubResource( 27 )
+value = 100.0
+percent_visible = false
+script = ExtResource( 3 )
+
 [node name="FishRigidBody" type="RigidBody2D" parent="."]
 mass = 0.102041
 gravity_scale = 0.0
@@ -992,6 +1007,7 @@ can_sleep = false
 linear_damp = 0.3
 angular_damp = 5.0
 script = ExtResource( 1 )
+camera = NodePath("../Camera2D")
 anim_tail = NodePath("FishRig/AnimationPlayerTail")
 anim_lf = NodePath("FishRig/AnimationPlayerLF")
 anim_rf = NodePath("FishRig/AnimationPlayerRF")
@@ -1056,20 +1072,5 @@ anims/Idle = SubResource( 22 )
 anims/RESET = SubResource( 23 )
 anims/TailLeft = SubResource( 24 )
 anims/TailRight = SubResource( 25 )
-
-[node name="Camera2D" type="Camera2D" parent="FishRigidBody"]
-current = true
-zoom = Vector2( 3, 3 )
-
-[node name="ProgressBar" type="ProgressBar" parent="FishRigidBody/Camera2D"]
-margin_left = -1544.0
-margin_top = 796.0
-margin_right = 1530.0
-margin_bottom = 888.0
-custom_styles/fg = SubResource( 26 )
-custom_styles/bg = SubResource( 27 )
-value = 100.0
-percent_visible = false
-script = ExtResource( 3 )
 
 [node name="Food" parent="." instance=ExtResource( 5 )]
