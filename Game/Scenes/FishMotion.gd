@@ -43,7 +43,8 @@ func _physics_process(delta):
 		flipper_side -= 1
 	if rf_down:
 		flipper_side += 1
-	add_torque(linear_velocity.length() * flipper_side * 0.2)
+	add_torque((200 + log(1 + linear_velocity.length())) * flipper_side * 0.7)
+	add_torque(angular_velocity * -20)
 	camera.global_position = global_position
 	
 func use_flipper(side):

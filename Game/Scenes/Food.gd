@@ -1,6 +1,6 @@
 extends Node2D
 
-var radius = 500
+var radius = 1000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
