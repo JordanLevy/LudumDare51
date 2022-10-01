@@ -1,6 +1,8 @@
 extends RigidBody2D
 
-export(NodePath) onready var animation_player = get_node(animation_player) as AnimationPlayer
+export(NodePath) onready var anim_tail = get_node(anim_tail) as AnimationPlayer
+export(NodePath) onready var anim_lf = get_node(anim_lf) as AnimationPlayer
+export(NodePath) onready var anim_rf = get_node(anim_rf) as AnimationPlayer
 
 var controls_list : Array = [KEY_Q, KEY_W, KEY_O, KEY_P]
 var lf_key #left flipper
@@ -44,21 +46,21 @@ func _physics_process(delta):
 	
 func use_flipper(side):
 	if side == -1:
-		animation_player.play("FlipperLeft")
+		anim_lf.play("FlipperLeft")
 	elif side == 1:
-		animation_player.play("FlipperRight")
+		anim_rf.play("FlipperRight")
 		
 func release_flipper(side):
 	if side == -1:
-		animation_player.play("FlipperLeftRelease")
+		anim_lf.play("FlipperLeftRelease")
 	elif side == 1:
-		animation_player.play("FlipperRightRelease")
+		anim_rf.play("FlipperRightRelease")
 	
 func thrust(side):
 	if side == -1:
-		animation_player.play("TailLeft")
+		anim_tail.play("TailLeft")
 	elif side == 1:
-		animation_player.play("TailRight")
+		anim_tail.play("TailRight")
 	tail_side = side;
 	apply_impulse(Vector2.ZERO, -transform.y * 10)
 
@@ -88,10 +90,10 @@ func _input(event):
 			release_flipper(1)
 			rf_down = false
 		if event.scancode == lt_key:
-			if rt_down:
+			if rt_down and tail_side == -1:
 				thrust(1)
 			lt_down = false
 		if event.scancode == rt_key:
-			if lt_down:
+			if lt_down and tail_side == 1:
 				thrust(-1)
 			rt_down = false
