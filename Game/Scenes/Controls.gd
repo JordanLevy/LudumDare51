@@ -1,6 +1,6 @@
 extends Node
 
-var controls_list : Array = ['A', 'B', 'C', 'D']
+var controls_list : Array = [KEY_Q, KEY_W, KEY_O, KEY_P]
 var left_turn
 var right_turn
 var left_tail

@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Scripts/ParallaxBackground.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Background/ocean_particles.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Background/water.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/FishMotion.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Background/test_bg.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fish/Fish_Separated.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Controls.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Music.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 97.1428
+height = 359.714
 
 [sub_resource type="Animation" id=1]
 resource_name = "FlipperLeft"
@@ -35,6 +36,34 @@ tracks/1/keys = {
 "values": [ 0.0, -20.0 ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "FlipperLeftRelease"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/LFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -73, 0 ), Vector2( -100, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/LFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
 [sub_resource type="Animation" id=2]
 resource_name = "FlipperRight"
 length = 0.2
@@ -61,6 +90,34 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 20.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "FlipperRightRelease"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/RFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 80, 0 ), Vector2( 105, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -125,7 +182,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 290 ) ]
+"values": [ Vector2( -20, 290 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Torso/Tail:rotation_degrees")
@@ -137,7 +194,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 15.0 ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Torso:position")
@@ -149,7 +206,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 474, 255 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("Torso:rotation_degrees")
@@ -276,7 +333,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 290 ), Vector2( -20, 290 ) ]
+"values": [ Vector2( 23, 290 ), Vector2( -20, 290 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Torso/Tail:rotation_degrees")
@@ -288,7 +345,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 15.0 ]
+"values": [ -15.0, 15.0 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -304,7 +361,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 290 ), Vector2( 23, 290 ) ]
+"values": [ Vector2( -20, 290 ), Vector2( 23, 290 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Torso/Tail:rotation_degrees")
@@ -316,67 +373,148 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, -15.0 ]
+"values": [ 15.0, -15.0 ]
 }
+
+[sub_resource type="AnimationNodeAdd2" id=16]
+
+[sub_resource type="AnimationNodeAdd2" id=17]
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "TailRight"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "FlipperLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "FlipperLeftRelease"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "FlipperRight"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "FlipperRightRelease"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "TailLeft"
+
+[sub_resource type="AnimationNodeTransition" id=23]
+input_count = 2
+input_0/name = "FlipperLeft"
+input_0/auto_advance = false
+input_1/name = "FlipperLeftRelease"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=22]
+input_count = 2
+input_0/name = "FlipperRight"
+input_0/auto_advance = false
+input_1/name = "FlipperRightRelease"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=13]
+input_count = 2
+input_0/name = "TailLeft"
+input_0/auto_advance = false
+input_1/name = "TailRight"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeBlendTree" id=12]
+graph_offset = Vector2( -276.474, 145.722 )
+nodes/Add2/node = SubResource( 17 )
+nodes/Add2/position = Vector2( 800, 220 )
+"nodes/Add2 2/node" = SubResource( 16 )
+"nodes/Add2 2/position" = Vector2( 1120, 500 )
+nodes/Animation/node = SubResource( 15 )
+nodes/Animation/position = Vector2( 220, 0 )
+"nodes/Animation 2/node" = SubResource( 14 )
+"nodes/Animation 2/position" = Vector2( 220, 140 )
+"nodes/Animation 3/node" = SubResource( 18 )
+"nodes/Animation 3/position" = Vector2( 220, 300 )
+"nodes/Animation 4/node" = SubResource( 19 )
+"nodes/Animation 4/position" = Vector2( 180, 440 )
+"nodes/Animation 5/node" = SubResource( 20 )
+"nodes/Animation 5/position" = Vector2( 180, 620 )
+"nodes/Animation 6/node" = SubResource( 21 )
+"nodes/Animation 6/position" = Vector2( 140, 760 )
+nodes/FlipperLeft/node = SubResource( 23 )
+nodes/FlipperLeft/position = Vector2( 480, 340 )
+nodes/FlipperRight/node = SubResource( 22 )
+nodes/FlipperRight/position = Vector2( 500, 680 )
+nodes/Tail/node = SubResource( 13 )
+nodes/Tail/position = Vector2( 460, 20 )
+nodes/output/position = Vector2( 1440, 540 )
+node_connections = [ "Tail", 0, "Animation", "Tail", 1, "Animation 2", "FlipperLeft", 0, "Animation 3", "FlipperLeft", 1, "Animation 4", "FlipperRight", 0, "Animation 5", "FlipperRight", 1, "Animation 6", "Add2", 0, "Tail", "Add2", 1, "FlipperLeft", "Add2 2", 0, "Add2", "Add2 2", 1, "FlipperRight", "output", 0, "Add2 2" ]
 
 [node name="Main" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource( 1 )
 
-[node name="Water" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 512, 512 )
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Water"]
-position = Vector2( 512, 300 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 600 )
-
-[node name="OceanParticles" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 512, 512 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/OceanParticles"]
-position = Vector2( 512, 300 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 50, 50 )
 texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 600 )
 
-[node name="Controls" parent="." instance=ExtResource( 5 )]
+[node name="FishRigidBody" type="RigidBody2D" parent="."]
+mode = 2
+mass = 0.102041
+gravity_scale = 0.0
+can_sleep = false
+linear_damp = 1.0
+script = ExtResource( 1 )
+animation_player = NodePath("FishRig/AnimationPlayer")
 
-[node name="FishRig" type="Node2D" parent="."]
+[node name="FishCollider" type="CollisionShape2D" parent="FishRigidBody"]
+shape = SubResource( 7 )
 
-[node name="Torso" type="Sprite" parent="FishRig"]
+[node name="FishRig" type="Node2D" parent="FishRigidBody"]
+
+[node name="Torso" type="Sprite" parent="FishRigidBody/FishRig"]
 position = Vector2( 474, 255 )
-scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 410, 54, 200, 550 )
 
-[node name="LFlipper" type="Sprite" parent="FishRig/Torso"]
+[node name="LFlipper" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 position = Vector2( -100, 0 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 750, 330, 150, 155 )
 
-[node name="RFlipper" type="Sprite" parent="FishRig/Torso"]
+[node name="RFlipper" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 position = Vector2( 105, 0 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 750, 95, 130, 155 )
 
-[node name="Tail" type="Sprite" parent="FishRig/Torso"]
+[node name="Tail" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 position = Vector2( 0, 290 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 83, 179, 215, 330 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FishRig"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FishRigidBody/FishRig"]
+autoplay = "Idle"
 anims/FlipperLeft = SubResource( 1 )
+anims/FlipperLeftRelease = SubResource( 8 )
 anims/FlipperRight = SubResource( 2 )
+anims/FlipperRightRelease = SubResource( 9 )
 anims/Idle = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 anims/TailLeft = SubResource( 5 )
 anims/TailRight = SubResource( 6 )
 
-[node name="Music" parent="." instance=ExtResource( 6 )]
+[node name="AnimationTree" type="AnimationTree" parent="FishRigidBody/FishRig"]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Add2/add_amount = 1.0
+"parameters/Add2 2/add_amount" = 1.0
+parameters/FlipperLeft/current = 1
+parameters/FlipperRight/current = 1
+parameters/Tail/current = 0
+
+[node name="Camera2D" type="Camera2D" parent="FishRigidBody"]
+current = true
+zoom = Vector2( 3, 3 )
