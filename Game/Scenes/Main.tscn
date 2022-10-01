@@ -1,8 +1,10 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scenes/FishMotion.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Background/test_bg.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/ProgressBar.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Fish/Fish_Separated.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Food.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 97.1428
@@ -968,6 +970,11 @@ tracks/1/keys = {
 "values": [ 15.0, -15.0 ]
 }
 
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.882353, 0.819608, 0.243137, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=27]
+
 [node name="Main" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -1053,3 +1060,16 @@ anims/TailRight = SubResource( 25 )
 [node name="Camera2D" type="Camera2D" parent="FishRigidBody"]
 current = true
 zoom = Vector2( 3, 3 )
+
+[node name="ProgressBar" type="ProgressBar" parent="FishRigidBody/Camera2D"]
+margin_left = -1544.0
+margin_top = 796.0
+margin_right = 1530.0
+margin_bottom = 888.0
+custom_styles/fg = SubResource( 26 )
+custom_styles/bg = SubResource( 27 )
+value = 100.0
+percent_visible = false
+script = ExtResource( 3 )
+
+[node name="Food" parent="." instance=ExtResource( 5 )]

@@ -8,4 +8,5 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	print("Food got ate")
 	#Create new food nearby
+	GameEvents.emit_signal('FoodEaten')
 	queue_free()
