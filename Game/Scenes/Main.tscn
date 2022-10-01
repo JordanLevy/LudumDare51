@@ -1,9 +1,7 @@
 [gd_scene load_steps=7 format=2]
-
 [ext_resource path="res://Scripts/ParallaxBackground.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Background/ocean_particles.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Background/water.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fish/Fish_Cropped.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Controls.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Music.tscn" type="PackedScene" id=6]
 
@@ -29,13 +27,6 @@ position = Vector2( 512, 300 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 600 )
-
-[node name="Fish" type="Sprite" parent="."]
-position = Vector2( 512, 300 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 402, 847 )
 
 [node name="Controls" parent="." instance=ExtResource( 5 )]
 
