@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/ParallaxBackground.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Background/ocean_particles.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Background/water.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fish/Fish_Cropped.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Controls.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 
@@ -34,3 +35,5 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 402, 847 )
+
+[node name="Controls" parent="." instance=ExtResource( 5 )]

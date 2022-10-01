@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Controls.gd" type="Script" id=1]
+
+[node name="Controls" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Randomizer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+margin_right = 6.0
+margin_bottom = 68.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer"]
+margin_right = 6.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/GridContainer"]
+margin_right = 6.0
+margin_bottom = 14.0
+text = "?"
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/GridContainer"]
+margin_top = 18.0
+margin_right = 6.0
+margin_bottom = 32.0
+text = "?"
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/GridContainer"]
+margin_top = 36.0
+margin_right = 6.0
+margin_bottom = 50.0
+text = "?"
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/GridContainer"]
+margin_top = 54.0
+margin_right = 6.0
+margin_bottom = 68.0
+text = "?"
+
+[connection signal="timeout" from="Randomizer" to="." method="_on_Randomizer_timeout"]
