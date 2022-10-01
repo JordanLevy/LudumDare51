@@ -1123,7 +1123,6 @@ scale = Vector2( 50, 50 )
 texture = ExtResource( 2 )
 
 [node name="FishRigidBody" type="RigidBody2D" parent="."]
-mode = 2
 mass = 0.102041
 gravity_scale = 0.0
 can_sleep = false

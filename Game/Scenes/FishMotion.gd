@@ -42,7 +42,7 @@ func _physics_process(delta):
 		flipper_side -= 1
 	if rf_down:
 		flipper_side += 1
-	add_torque(linear_velocity.length() * flipper_side * 5)
+	apply_torque_impulse(linear_velocity.length() * flipper_side * 0.1)
 	
 func use_flipper(side):
 	if side == -1:
