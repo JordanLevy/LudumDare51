@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export(NodePath) onready var animation_tree = get_node(animation_tree) as AnimationTree
+export(NodePath) onready var animation_player = get_node(animation_player) as AnimationPlayer
 
 var controls_list : Array = [KEY_Q, KEY_W, KEY_O, KEY_P]
 var lf_key #left flipper
@@ -44,7 +44,7 @@ func _physics_process(delta):
 	
 func use_flipper(side):
 	if side == -1:
-		
+		animation_player.play("FlipperLeft")
 	elif side == 1:
 		animation_player.play("FlipperRight")
 		
