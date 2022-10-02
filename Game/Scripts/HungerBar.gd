@@ -5,7 +5,7 @@ extends ProgressBar
 # var a = 2
 # var b = "text"
 
-var hunger_per_second = 30
+var hunger_per_second = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
