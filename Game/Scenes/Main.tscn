@@ -1,22 +1,23 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
-[ext_resource path="res://Scenes/FishMotion.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/FishMotion.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Background/test_bg.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/ProgressBar.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/HungerBar.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Fish/Fish_Separated.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Food.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/UI/ForgetTimer.png" type="Texture" id=6]
 [ext_resource path="res://Assets/UI/ForgetQuestionMark.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/ForgetTimer.gd" type="Script" id=8]
 [ext_resource path="res://Assets/UI/Arrow.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/Arrow.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Arrow.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Music.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Audio/swim_sound_effect1.wav" type="AudioStream" id=12]
-[ext_resource path="res://Scenes/Glub.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Glub.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Audio/glub_sound_effect2.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Audio/glub_sound_effect1.wav" type="AudioStream" id=15]
 [ext_resource path="res://Assets/Fonts/Arial.tres" type="DynamicFont" id=16]
 [ext_resource path="res://Assets/Fonts/Arial_Controls.tres" type="DynamicFont" id=17]
+[ext_resource path="res://Scripts/Instructions.gd" type="Script" id=18]
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 97.1428
@@ -1148,7 +1149,7 @@ anims/TailRight = SubResource( 25 )
 current = true
 zoom = Vector2( 3, 3 )
 
-[node name="ProgressBar" type="ProgressBar" parent="Camera2D"]
+[node name="HungerBar" type="ProgressBar" parent="Camera2D"]
 margin_left = -1544.0
 margin_top = 796.0
 margin_right = 1530.0
@@ -1166,7 +1167,7 @@ texture = ExtResource( 9 )
 script = ExtResource( 10 )
 food_node = NodePath("../../Food")
 
-[node name="TextureProgress" type="TextureProgress" parent="Camera2D"]
+[node name="ForgetTimer" type="TextureProgress" parent="Camera2D"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -76.8
@@ -1184,7 +1185,12 @@ tint_over = Color( 0.192157, 0.192157, 0.192157, 0.588235 )
 tint_progress = Color( 1, 1, 1, 0.588235 )
 script = ExtResource( 8 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D"]
+[node name="Instructions" type="Control" parent="Camera2D"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 18 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Instructions"]
 margin_left = 123.0
 margin_top = -797.0
 margin_right = 641.0
@@ -1192,7 +1198,7 @@ margin_bottom = -709.0
 custom_fonts/normal_font = ExtResource( 16 )
 text = "Eat food to survive"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D/Instructions"]
 margin_left = 371.0
 margin_top = 87.0
 margin_right = 1538.0
@@ -1201,7 +1207,7 @@ custom_fonts/normal_font = ExtResource( 16 )
 text = "Every 10 seconds, you forget how to swim. When this happens, the controls randomly swap between the Q, W, O, and P keys.
 "
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="Camera2D"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="Camera2D/Instructions"]
 margin_left = -558.0
 margin_top = 554.0
 margin_right = 664.0
@@ -1209,7 +1215,7 @@ margin_bottom = 671.0
 custom_fonts/normal_font = ExtResource( 16 )
 text = "Press [Space] to glub (and to start the game)"
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="Camera2D"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="Camera2D/Instructions"]
 margin_left = -1509.0
 margin_top = 331.0
 margin_right = -245.0
@@ -1217,7 +1223,7 @@ margin_bottom = 501.0
 custom_fonts/normal_font = ExtResource( 16 )
 text = "Wiggle your tail back and forth to move forward"
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="Camera2D"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="Camera2D/Instructions"]
 margin_left = -1036.0
 margin_top = -52.0
 margin_right = -267.0

@@ -57,9 +57,10 @@ func shuffle():
 	set_control_labels()
 	
 func on_main_menu():
+	print("jksdfh")
 	controls_list = [KEY_Q, KEY_W, KEY_O, KEY_P]
-	global_position = Vector2.ZERO
-	global_rotation = 0
+	position = Vector2.ZERO
+	rotation = 0
 	shuffle()
 	
 func on_start_game():
