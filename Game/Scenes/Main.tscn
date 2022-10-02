@@ -1,7 +1,7 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Scripts/FishMotion.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Background/WaterBG.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Background/WaterBG-512.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/HungerBar.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Fish/Fish_Separated.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Food.tscn" type="PackedScene" id=5]
@@ -23,6 +23,9 @@
 [ext_resource path="res://Assets/Audio/swim_sound_effect2.wav" type="AudioStream" id=21]
 [ext_resource path="res://Assets/Audio/swim_sound_effect3.wav" type="AudioStream" id=22]
 [ext_resource path="res://Scripts/DisappearOnLose.gd" type="Script" id=23]
+[ext_resource path="res://Assets/Audio/eat_sound_effect1.wav" type="AudioStream" id=24]
+[ext_resource path="res://Assets/Audio/eat_sound_effect3.wav" type="AudioStream" id=25]
+[ext_resource path="res://Assets/Audio/eat_sound_effect2.wav" type="AudioStream" id=26]
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 97.1428
@@ -1003,14 +1006,20 @@ bg_color = Color( 0.94902, 0.792157, 0.168627, 1 )
 [node name="Main" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( 512, 512 )
+scale = Vector2( 3, 3 )
+transform = Transform2D( 3, 0, 0, 3, 512, 512 )
+scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.111, 0.111 )
+motion_mirroring = Vector2( 512, 512 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 20, 20 )
 texture = ExtResource( 2 )
 
 [node name="Food" parent="." instance=ExtResource( 5 )]
+position = Vector2( -456, -565 )
 
 [node name="FishRigidBody" type="RigidBody2D" parent="."]
 mass = 0.05
@@ -1027,6 +1036,18 @@ lf_label = NodePath("FishRig/Torso/LFlipper/LFlipperButton")
 rf_label = NodePath("FishRig/Torso/RFlipper/RFlipperButton")
 lt_label = NodePath("FishRig/Torso/Tail/LTailButton")
 rt_label = NodePath("FishRig/Torso/Tail/RTailButton")
+
+[node name="Eat" type="Node2D" parent="FishRigidBody"]
+script = ExtResource( 13 )
+
+[node name="EatPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/Eat"]
+stream = ExtResource( 24 )
+
+[node name="EatPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/Eat"]
+stream = ExtResource( 26 )
+
+[node name="EatPlayerC" type="AudioStreamPlayer" parent="FishRigidBody/Eat"]
+stream = ExtResource( 25 )
 
 [node name="Turn" type="Node2D" parent="FishRigidBody"]
 script = ExtResource( 13 )
@@ -1232,18 +1253,18 @@ margin_bottom = 40.0
 script = ExtResource( 18 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Instructions"]
-margin_left = 123.0
-margin_top = -797.0
-margin_right = 641.0
-margin_bottom = -709.0
+margin_left = -735.0
+margin_top = -789.0
+margin_right = -217.0
+margin_bottom = -701.0
 custom_fonts/normal_font = ExtResource( 16 )
 text = "Eat food to survive"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D/Instructions"]
-margin_left = 371.0
-margin_top = 87.0
-margin_right = 1538.0
-margin_bottom = 317.0
+margin_left = 334.0
+margin_top = -640.0
+margin_right = 1501.0
+margin_bottom = -342.0
 custom_fonts/normal_font = ExtResource( 16 )
 text = "Every 10 seconds, you forget how to swim. When this happens, the controls randomly swap between the Q, W, O, and P keys.
 "

@@ -1,6 +1,6 @@
 extends Node2D
 
-var radius = 1000
+var radius = 2000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,9 +11,10 @@ func _on_Area2D_body_entered(body):
 		return
 	print("Food got ate")
 	#Create new food nearby
-	GameEvents.emit_signal('FoodEaten')
+	GameEvents.emit_signal("FoodEaten")
+	GameEvents.emit_signal("PlaySound", "Eat")
 	position = new_position()
-	GameEvents.emit_signal('NewFood', position)
+	GameEvents.emit_signal("NewFood", position)
 
 
 func new_position():
