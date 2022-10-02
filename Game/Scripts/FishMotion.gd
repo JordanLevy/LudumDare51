@@ -176,9 +176,6 @@ func game_input(event):
 
 func _input(event):
 	if GameEvents.game_state == GameEvents.MAIN_MENU:
-		if event is InputEventKey and event.pressed:
-			if event.scancode == KEY_SPACE:
-				GameEvents.emit_signal("StartGame")
 		game_input(event)
 	elif GameEvents.game_state == GameEvents.PLAYING:
 		game_input(event)

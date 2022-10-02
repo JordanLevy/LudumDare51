@@ -25,4 +25,5 @@ func _process(delta):
 	value = round(timer) * 10
 	if timer <= 0:
 		GameEvents.emit_signal("ForgetControls")
+		GameEvents.emit_signal("PlaySound", "Forget")
 		timer = 10.0

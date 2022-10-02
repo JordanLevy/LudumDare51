@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Scripts/FishMotion.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Background/WaterBG-512.png" type="Texture" id=2]
@@ -26,10 +26,14 @@
 [ext_resource path="res://Assets/Audio/eat_sound_effect1.wav" type="AudioStream" id=24]
 [ext_resource path="res://Assets/Audio/eat_sound_effect3.wav" type="AudioStream" id=25]
 [ext_resource path="res://Assets/Audio/eat_sound_effect2.wav" type="AudioStream" id=26]
+[ext_resource path="res://Assets/Fonts/Arial_Score.tres" type="DynamicFont" id=27]
+[ext_resource path="res://Assets/Audio/forget_sound_effect2.wav" type="AudioStream" id=28]
+[ext_resource path="res://Assets/Audio/forget_sound_effect1.wav" type="AudioStream" id=29]
+[ext_resource path="res://Scripts/ScoreCounter.gd" type="Script" id=30]
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 97.1428
-height = 47.7144
+height = 211.714
 
 [sub_resource type="StyleBoxFlat" id=29]
 bg_color = Color( 0.584314, 0, 1, 0.588235 )
@@ -1018,9 +1022,6 @@ motion_mirroring = Vector2( 512, 512 )
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 2 )
 
-[node name="Food" parent="." instance=ExtResource( 5 )]
-position = Vector2( -456, -565 )
-
 [node name="FishRigidBody" type="RigidBody2D" parent="."]
 mass = 0.05
 gravity_scale = 0.0
@@ -1036,6 +1037,15 @@ lf_label = NodePath("FishRig/Torso/LFlipper/LFlipperButton")
 rf_label = NodePath("FishRig/Torso/RFlipper/RFlipperButton")
 lt_label = NodePath("FishRig/Torso/Tail/LTailButton")
 rt_label = NodePath("FishRig/Torso/Tail/RTailButton")
+
+[node name="Forget" type="Node2D" parent="FishRigidBody"]
+script = ExtResource( 13 )
+
+[node name="ForgetPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/Forget"]
+stream = ExtResource( 29 )
+
+[node name="ForgetPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/Forget"]
+stream = ExtResource( 28 )
 
 [node name="Eat" type="Node2D" parent="FishRigidBody"]
 script = ExtResource( 13 )
@@ -1077,7 +1087,7 @@ stream = ExtResource( 15 )
 stream = ExtResource( 14 )
 
 [node name="FishCollider" type="CollisionShape2D" parent="FishRigidBody"]
-position = Vector2( 0, -150 )
+position = Vector2( 0, -80 )
 shape = SubResource( 7 )
 
 [node name="FishRig" type="Node2D" parent="FishRigidBody"]
@@ -1197,9 +1207,38 @@ anims/RESET = SubResource( 23 )
 anims/TailLeft = SubResource( 24 )
 anims/TailRight = SubResource( 25 )
 
+[node name="Food" parent="." instance=ExtResource( 5 )]
+position = Vector2( -456, -565 )
+
+[node name="Instructions" type="Control" parent="Food"]
+margin_left = 456.0
+margin_top = 565.0
+margin_right = 496.0
+margin_bottom = 605.0
+script = ExtResource( 18 )
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Food/Instructions"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -874.0
+margin_top = -475.0
+margin_right = -6.0
+margin_bottom = -387.0
+custom_fonts/normal_font = ExtResource( 16 )
+text = "Eat this food to start the game"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 3, 3 )
+
+[node name="ScoreLabel" type="RichTextLabel" parent="Camera2D"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -1309.0
+margin_top = -865.0
+margin_right = -852.0
+margin_bottom = -631.0
+custom_fonts/normal_font = ExtResource( 27 )
+text = "0"
+script = ExtResource( 30 )
 
 [node name="HungerBar" type="ProgressBar" parent="Camera2D"]
 margin_left = -1544.0
@@ -1248,54 +1287,57 @@ tint_progress = Color( 1, 1, 1, 0.588235 )
 script = ExtResource( 8 )
 
 [node name="Instructions" type="Control" parent="Camera2D"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 456.0
+margin_top = 565.0
+margin_right = 496.0
+margin_bottom = 605.0
 script = ExtResource( 18 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Instructions"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -735.0
-margin_top = -789.0
-margin_right = -217.0
-margin_bottom = -701.0
-custom_fonts/normal_font = ExtResource( 16 )
-text = "Eat food to survive"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D/Instructions"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 334.0
-margin_top = -640.0
-margin_right = 1501.0
-margin_bottom = -342.0
+margin_left = -194.0
+margin_top = -1211.0
+margin_right = 973.0
+margin_bottom = -913.0
 custom_fonts/normal_font = ExtResource( 16 )
 text = "Every 10 seconds, you forget how to swim. When this happens, the controls randomly swap between the Q, W, O, and P keys.
 "
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Camera2D/Instructions"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -558.0
-margin_top = 554.0
-margin_right = 664.0
-margin_bottom = 671.0
+margin_left = -169.0
+margin_top = -776.0
+margin_right = 436.0
+margin_bottom = -684.0
 custom_fonts/normal_font = ExtResource( 16 )
-text = "Press [Space] to glub (and to start the game)"
+text = "Press [Space] to glub"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="Camera2D/Instructions"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -1509.0
-margin_top = 331.0
-margin_right = -245.0
-margin_bottom = 501.0
+margin_left = -199.0
+margin_top = -221.0
+margin_right = 506.0
+margin_bottom = -51.0
 custom_fonts/normal_font = ExtResource( 16 )
-text = "Wiggle your tail back and forth to move forward"
+text = "Move forward by wiggling
+your tail back and forth"
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="Camera2D/Instructions"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -1036.0
-margin_top = -52.0
-margin_right = -267.0
-margin_bottom = 53.0
+margin_left = -164.0
+margin_top = -475.0
+margin_right = 416.0
+margin_bottom = -370.0
 custom_fonts/normal_font = ExtResource( 16 )
 text = "Use your fins to turn"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Instructions"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -1255.0
+margin_top = -1352.0
+margin_right = -551.0
+margin_bottom = -1264.0
+custom_fonts/normal_font = ExtResource( 16 )
+text = "You need food to survive"
 
 [node name="Music" parent="." instance=ExtResource( 11 )]

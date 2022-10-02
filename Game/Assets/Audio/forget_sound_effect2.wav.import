@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/forget_sound_effect2.wav-47acb60c1848837b4ca52bb17fca17a0.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/forget_sound_effect2.wav"
+dest_files=[ "res://.import/forget_sound_effect2.wav-47acb60c1848837b4ca52bb17fca17a0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
