@@ -35,12 +35,29 @@ func get_key_letter(val):
 		return "P"
 	return "-"
 	
+func get_key_color(val):
+	var stylebox_flat := StyleBoxFlat.new()
+	stylebox_flat.bg_color = Color("96ffffff")
+	if val == KEY_Q:
+		stylebox_flat.bg_color = Color("96ff0000")
+	elif val == KEY_W:
+		stylebox_flat.bg_color = Color("960c00ff")
+	elif val == KEY_O:
+		stylebox_flat.bg_color = Color("9646ff00")
+	elif val == KEY_P:
+		stylebox_flat.bg_color = Color("969500ff")
+	return stylebox_flat
+	
 
 func set_control_labels():
 	lf_label.text = get_key_letter(lf_key)
+	lf_label.add_stylebox_override("disabled",  get_key_color(lf_key))
 	rf_label.text = get_key_letter(rf_key)
+	rf_label.add_stylebox_override("disabled",  get_key_color(rf_key))
 	lt_label.text = get_key_letter(lt_key)
+	lt_label.add_stylebox_override("disabled",  get_key_color(lt_key))
 	rt_label.text = get_key_letter(rt_key)
+	rt_label.add_stylebox_override("disabled",  get_key_color(rt_key))
 	
 func release_all_buttons():
 	if lf_down:

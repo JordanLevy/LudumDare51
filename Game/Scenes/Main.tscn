@@ -32,7 +32,7 @@ radius = 97.1428
 height = 47.7144
 
 [sub_resource type="StyleBoxFlat" id=29]
-bg_color = Color( 1, 1, 1, 0.588235 )
+bg_color = Color( 0.584314, 0, 1, 0.588235 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -1253,6 +1253,7 @@ margin_bottom = 40.0
 script = ExtResource( 18 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Instructions"]
+modulate = Color( 0, 0, 0, 1 )
 margin_left = -735.0
 margin_top = -789.0
 margin_right = -217.0
@@ -1261,6 +1262,7 @@ custom_fonts/normal_font = ExtResource( 16 )
 text = "Eat food to survive"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D/Instructions"]
+modulate = Color( 0, 0, 0, 1 )
 margin_left = 334.0
 margin_top = -640.0
 margin_right = 1501.0
@@ -1270,6 +1272,7 @@ text = "Every 10 seconds, you forget how to swim. When this happens, the control
 "
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Camera2D/Instructions"]
+modulate = Color( 0, 0, 0, 1 )
 margin_left = -558.0
 margin_top = 554.0
 margin_right = 664.0
@@ -1278,6 +1281,7 @@ custom_fonts/normal_font = ExtResource( 16 )
 text = "Press [Space] to glub (and to start the game)"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="Camera2D/Instructions"]
+modulate = Color( 0, 0, 0, 1 )
 margin_left = -1509.0
 margin_top = 331.0
 margin_right = -245.0
@@ -1286,6 +1290,7 @@ custom_fonts/normal_font = ExtResource( 16 )
 text = "Wiggle your tail back and forth to move forward"
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="Camera2D/Instructions"]
+modulate = Color( 0, 0, 0, 1 )
 margin_left = -1036.0
 margin_top = -52.0
 margin_right = -267.0
