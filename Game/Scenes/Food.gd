@@ -7,6 +7,8 @@ func _ready():
 	pass
 
 func _on_Area2D_body_entered(body):
+	if GameEvents.game_state == GameEvents.GAME_OVER:
+		return
 	print("Food got ate")
 	#Create new food nearby
 	GameEvents.emit_signal('FoodEaten')

@@ -20,7 +20,7 @@
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 97.1428
-height = 359.714
+height = 47.7144
 
 [sub_resource type="StyleBoxFlat" id=29]
 bg_color = Color( 1, 1, 1, 0.588235 )
@@ -1004,6 +1004,8 @@ bg_color = Color( 0.94902, 0.792157, 0.168627, 1 )
 scale = Vector2( 50, 50 )
 texture = ExtResource( 2 )
 
+[node name="Food" parent="." instance=ExtResource( 5 )]
+
 [node name="FishRigidBody" type="RigidBody2D" parent="."]
 mass = 0.102041
 gravity_scale = 0.0
@@ -1036,6 +1038,7 @@ stream = ExtResource( 15 )
 stream = ExtResource( 14 )
 
 [node name="FishCollider" type="CollisionShape2D" parent="FishRigidBody"]
+position = Vector2( 0, -150 )
 shape = SubResource( 7 )
 
 [node name="FishRig" type="Node2D" parent="FishRigidBody"]
@@ -1140,8 +1143,6 @@ anims/Idle = SubResource( 22 )
 anims/RESET = SubResource( 23 )
 anims/TailLeft = SubResource( 24 )
 anims/TailRight = SubResource( 25 )
-
-[node name="Food" parent="." instance=ExtResource( 5 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

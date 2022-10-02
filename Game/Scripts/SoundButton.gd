@@ -2,7 +2,7 @@ extends ToolButton
 
 export (Texture) var enabled_icon
 export (Texture) var disabled_icon
-export(NodePath) onready var background_music = get_node(background_music) as Node
+export(NodePath) onready var background_music = get_node(background_music) as AudioStreamPlayer
 
 func _ready():
 	toggle_mode = true
@@ -12,7 +12,7 @@ func _ready():
 func toggle_music(button_on):
 	if !button_on:
 		icon = enabled_icon
-		background_music.enable_music = true
+		background_music.volume_db = 1
 	else:
 		icon = disabled_icon
-		background_music.enable_music = false
+		background_music.volume_db = -80
