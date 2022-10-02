@@ -7,15 +7,16 @@ export(NodePath) onready var anim_rf = get_node(anim_rf) as AnimationPlayer
 export(NodePath) onready var splash_sound = get_node(splash_sound) as AudioStreamPlayer
 
 var controls_list : Array = [KEY_Q, KEY_W, KEY_O, KEY_P]
-var lf_key #left flipper
-var rf_key #right flipper
-var lt_key #left tail
-var rt_key #right tail
 
 var lf_down = false
 var rf_down = false
 var lt_down = false
 var rt_down = false
+
+var lf_key = controls_list[0]
+var rf_key = controls_list[1]
+var lt_key = controls_list[2]
+var rt_key = controls_list[3]
 
 var tail_side = -1
 
@@ -29,12 +30,26 @@ func shuffle():
 
 func display():
 	print(controls_list)
-
-func _ready():
-	GameEvents.connect("ForgetControls", self, "shuffle")
-	#randomize()
+	
+func on_main_menu():
+	controls_list = [KEY_Q, KEY_W, KEY_O, KEY_P]
+	global_position = Vector2.ZERO
+	global_rotation = 0
 	shuffle()
 	display()
+	
+func on_start_game():
+	display()
+	
+func on_game_over():
+	pass
+
+func _ready():
+	GameEvents.connect("MainMenu", self, 'on_main_menu')
+	GameEvents.connect("StartGame", self, 'on_start_game')
+	GameEvents.connect("GameOver", self, 'on_game_over')
+	GameEvents.connect("ForgetControls", self, "shuffle")
+	#randomize()
 
 func _physics_process(delta):
 	var flipper_side = 0
@@ -67,8 +82,8 @@ func thrust(side):
 	if not splash_sound.playing:
 		splash_sound.play()
 	apply_impulse(Vector2.ZERO, -transform.y * 10)
-
-func _input(event):
+	
+func game_input(event):
 	if event is InputEventKey and event.pressed:
 		if event.scancode == lf_key:
 			if not lf_down:
@@ -101,3 +116,16 @@ func _input(event):
 			if lt_down and tail_side == 1:
 				thrust(-1)
 			rt_down = false
+
+func _input(event):
+	print(GameEvents.game_state)
+	if GameEvents.game_state == GameEvents.MAIN_MENU:
+		if event is InputEventKey and event.pressed:
+			if event.scancode == KEY_SPACE:
+				GameEvents.emit_signal("StartGame")
+	elif GameEvents.game_state == GameEvents.PLAYING:
+		game_input(event)
+	elif GameEvents.game_state == GameEvents.GAME_OVER:
+		if event is InputEventKey and event.pressed:
+			if event.scancode == KEY_SPACE:
+				GameEvents.emit_signal("MainMenu")

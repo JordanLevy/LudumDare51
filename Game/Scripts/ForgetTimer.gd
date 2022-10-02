@@ -2,13 +2,25 @@ extends TextureProgress
 
 var timer = 10.0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GameEvents.connect("MainMenu", self, 'on_main_menu')
+	GameEvents.connect("StartGame", self, 'on_start_game')
+	GameEvents.connect("GameOver", self, 'on_game_over')
 
+func on_main_menu():
+	timer = 10.0
+	value = 100
+	
+func on_start_game():
+	timer = 10.0
+	value = 100
+	
+func on_game_over():
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if GameEvents.game_state != GameEvents.PLAYING:
+		return
 	timer -= delta
 	value = round(timer) * 10
 	if timer <= 0:

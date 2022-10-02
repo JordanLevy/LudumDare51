@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/UI/Arrow.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Arrow.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Music.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/Audio/Splash.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Audio/swim_sound_effect1.wav" type="AudioStream" id=12]
 [ext_resource path="res://Scenes/Glub.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Audio/glub_sound_effect2.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Audio/glub_sound_effect1.wav" type="AudioStream" id=15]
@@ -1123,5 +1123,12 @@ tint_under = Color( 0.223529, 0.223529, 0.223529, 0.784314 )
 tint_over = Color( 0.192157, 0.192157, 0.192157, 0.588235 )
 tint_progress = Color( 1, 1, 1, 0.588235 )
 script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="Camera2D"]
+margin_left = 161.0
+margin_top = -199.0
+margin_right = 353.0
+margin_bottom = -148.0
+text = "fdgdfgdfgdfgdfgrrwerwerwerwe"
 
 [node name="Music" parent="." instance=ExtResource( 11 )]
