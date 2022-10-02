@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scenes/FishMotion.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Background/test_bg.png" type="Texture" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://Scripts/ForgetTimer.gd" type="Script" id=8]
 [ext_resource path="res://Assets/UI/Arrow.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Arrow.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Music.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Audio/Splash.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Scenes/Glub.gd" type="Script" id=13]
+[ext_resource path="res://Assets/Audio/glub_sound_effect2.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Audio/glub_sound_effect1.wav" type="AudioStream" id=15]
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 97.1428
@@ -1001,6 +1006,21 @@ camera = NodePath("../Camera2D")
 anim_tail = NodePath("FishRig/AnimationPlayerTail")
 anim_lf = NodePath("FishRig/AnimationPlayerLF")
 anim_rf = NodePath("FishRig/AnimationPlayerRF")
+splash_sound = NodePath("SplashPlayer")
+
+[node name="SplashPlayer" type="AudioStreamPlayer" parent="FishRigidBody"]
+stream = ExtResource( 12 )
+
+[node name="Glub" type="Node2D" parent="FishRigidBody/SplashPlayer"]
+script = ExtResource( 13 )
+glub_player_a = NodePath("GlubPlayerA")
+glub_player_b = NodePath("GlubPlayerB")
+
+[node name="GlubPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/SplashPlayer/Glub"]
+stream = ExtResource( 15 )
+
+[node name="GlubPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/SplashPlayer/Glub"]
+stream = ExtResource( 14 )
 
 [node name="FishCollider" type="CollisionShape2D" parent="FishRigidBody"]
 shape = SubResource( 7 )
@@ -1103,3 +1123,5 @@ tint_under = Color( 0.223529, 0.223529, 0.223529, 0.784314 )
 tint_over = Color( 0.192157, 0.192157, 0.192157, 0.588235 )
 tint_progress = Color( 1, 1, 1, 0.588235 )
 script = ExtResource( 8 )
+
+[node name="Music" parent="." instance=ExtResource( 11 )]

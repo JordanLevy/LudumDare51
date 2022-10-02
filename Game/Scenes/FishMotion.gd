@@ -4,6 +4,7 @@ export(NodePath) onready var camera = get_node(camera) as Camera2D
 export(NodePath) onready var anim_tail = get_node(anim_tail) as AnimationPlayer
 export(NodePath) onready var anim_lf = get_node(anim_lf) as AnimationPlayer
 export(NodePath) onready var anim_rf = get_node(anim_rf) as AnimationPlayer
+export(NodePath) onready var splash_sound = get_node(splash_sound) as AudioStreamPlayer
 
 var controls_list : Array = [KEY_Q, KEY_W, KEY_O, KEY_P]
 var lf_key #left flipper
@@ -63,6 +64,8 @@ func thrust(side):
 	elif side == 1:
 		anim_tail.play("TailRight")
 	tail_side = side;
+	if not splash_sound.playing:
+		splash_sound.play()
 	apply_impulse(Vector2.ZERO, -transform.y * 10)
 
 func _input(event):
