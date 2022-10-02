@@ -4,7 +4,6 @@ export(NodePath) onready var camera = get_node(camera) as Camera2D
 export(NodePath) onready var anim_tail = get_node(anim_tail) as AnimationPlayer
 export(NodePath) onready var anim_lf = get_node(anim_lf) as AnimationPlayer
 export(NodePath) onready var anim_rf = get_node(anim_rf) as AnimationPlayer
-export(NodePath) onready var splash_sound = get_node(splash_sound) as AudioStreamPlayer
 export(NodePath) onready var lf_label = get_node(lf_label) as Button
 export(NodePath) onready var rf_label = get_node(rf_label) as Button
 export(NodePath) onready var lt_label = get_node(lt_label) as Button
@@ -104,6 +103,7 @@ func use_flipper(side):
 		anim_lf.play("FlipperLeft")
 	elif side == 1:
 		anim_rf.play("FlipperRight")
+	GameEvents.emit_signal('PlaySound', "Turn")
 		
 func release_flipper(side):
 	if side == -1:
@@ -113,16 +113,18 @@ func release_flipper(side):
 	
 func thrust(side):
 	if side == -1:
+		GameEvents.emit_signal('PlaySound', "ThrustLeft")
 		anim_tail.play("TailLeft")
 	elif side == 1:
+		GameEvents.emit_signal('PlaySound', "ThrustRight")
 		anim_tail.play("TailRight")
 	tail_side = side;
-	if not splash_sound.playing:
-		splash_sound.play()
 	apply_impulse(Vector2.ZERO, -transform.y * 10)
 	
 func game_input(event):
 	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_SPACE:
+			GameEvents.emit_signal('PlaySound', "Glub")
 		if event.scancode == lf_key:
 			if not lf_down:
 				use_flipper(-1)
@@ -161,7 +163,7 @@ func _input(event):
 			if event.scancode == KEY_SPACE:
 				GameEvents.emit_signal("StartGame")
 		game_input(event)
-	if GameEvents.game_state == GameEvents.PLAYING:
+	elif GameEvents.game_state == GameEvents.PLAYING:
 		game_input(event)
 	elif GameEvents.game_state == GameEvents.GAME_OVER:
 		if event is InputEventKey and event.pressed:

@@ -6,10 +6,10 @@ func _ready():
 	GameEvents.connect("GameOver", self, 'on_game_over')
 
 func on_main_menu():
-	visible = false
+	visible = true
 	
 func on_start_game():
-	visible = false
+	visible = true
 	
 func on_game_over():
-	visible = true
+	visible = false

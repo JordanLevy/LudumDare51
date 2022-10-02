@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ocean_particles.png-40b5b22bf2abdd294c1e863c9220bc1d.stex"
+path="res://.import/WaterBG.png-29c16cf3de0c178af9f7e371957887a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/ocean_particles.png"
-dest_files=[ "res://.import/ocean_particles.png-40b5b22bf2abdd294c1e863c9220bc1d.stex" ]
+source_file="res://Assets/Background/WaterBG.png"
+dest_files=[ "res://.import/WaterBG.png-29c16cf3de0c178af9f7e371957887a4.stex" ]
 
 [params]
 

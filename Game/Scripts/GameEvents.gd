@@ -18,6 +18,8 @@ signal NewFood(position)
 
 signal ForgetControls
 
+signal PlaySound(sound)
+
 func _ready():
 	connect("MainMenu", self, "on_main_menu")
 	connect("StartGame", self, "on_start_game")

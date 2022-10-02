@@ -1,7 +1,7 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Scripts/FishMotion.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Background/test_bg.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Background/WaterBG.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/HungerBar.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Fish/Fish_Separated.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Food.tscn" type="PackedScene" id=5]
@@ -12,7 +12,7 @@
 [ext_resource path="res://Scripts/Arrow.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Music.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Audio/swim_sound_effect1.wav" type="AudioStream" id=12]
-[ext_resource path="res://Scripts/Glub.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/SoundEffect.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Audio/glub_sound_effect2.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Audio/glub_sound_effect1.wav" type="AudioStream" id=15]
 [ext_resource path="res://Assets/Fonts/Arial.tres" type="DynamicFont" id=16]
@@ -20,6 +20,9 @@
 [ext_resource path="res://Scripts/Instructions.gd" type="Script" id=18]
 [ext_resource path="res://Assets/Fish/Dead_Eye.png" type="Texture" id=19]
 [ext_resource path="res://Scripts/AppearOnLose.gd" type="Script" id=20]
+[ext_resource path="res://Assets/Audio/swim_sound_effect2.wav" type="AudioStream" id=21]
+[ext_resource path="res://Assets/Audio/swim_sound_effect3.wav" type="AudioStream" id=22]
+[ext_resource path="res://Scripts/DisappearOnLose.gd" type="Script" id=23]
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 97.1428
@@ -1004,7 +1007,7 @@ bg_color = Color( 0.94902, 0.792157, 0.168627, 1 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 50, 50 )
+scale = Vector2( 20, 20 )
 texture = ExtResource( 2 )
 
 [node name="Food" parent="." instance=ExtResource( 5 )]
@@ -1020,24 +1023,36 @@ camera = NodePath("../Camera2D")
 anim_tail = NodePath("FishRig/AnimationPlayerTail")
 anim_lf = NodePath("FishRig/AnimationPlayerLF")
 anim_rf = NodePath("FishRig/AnimationPlayerRF")
-splash_sound = NodePath("SplashPlayer")
 lf_label = NodePath("FishRig/Torso/LFlipper/LFlipperButton")
 rf_label = NodePath("FishRig/Torso/RFlipper/RFlipperButton")
 lt_label = NodePath("FishRig/Torso/Tail/LTailButton")
 rt_label = NodePath("FishRig/Torso/Tail/RTailButton")
 
-[node name="SplashPlayer" type="AudioStreamPlayer" parent="FishRigidBody"]
+[node name="Turn" type="Node2D" parent="FishRigidBody"]
+script = ExtResource( 13 )
+
+[node name="TurnPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/Turn"]
+stream = ExtResource( 22 )
+
+[node name="ThrustLeft" type="Node2D" parent="FishRigidBody"]
+script = ExtResource( 13 )
+
+[node name="ThrustPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/ThrustLeft"]
 stream = ExtResource( 12 )
 
-[node name="Glub" type="Node2D" parent="FishRigidBody/SplashPlayer"]
+[node name="ThrustRight" type="Node2D" parent="FishRigidBody"]
 script = ExtResource( 13 )
-glub_player_a = NodePath("GlubPlayerA")
-glub_player_b = NodePath("GlubPlayerB")
 
-[node name="GlubPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/SplashPlayer/Glub"]
+[node name="ThrustPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/ThrustRight"]
+stream = ExtResource( 21 )
+
+[node name="Glub" type="Node2D" parent="FishRigidBody"]
+script = ExtResource( 13 )
+
+[node name="GlubPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/Glub"]
 stream = ExtResource( 15 )
 
-[node name="GlubPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/SplashPlayer/Glub"]
+[node name="GlubPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/Glub"]
 stream = ExtResource( 14 )
 
 [node name="FishCollider" type="CollisionShape2D" parent="FishRigidBody"]
@@ -1077,6 +1092,7 @@ custom_fonts/font = ExtResource( 17 )
 custom_styles/disabled = SubResource( 29 )
 disabled = true
 text = "-"
+script = ExtResource( 23 )
 
 [node name="RFlipper" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 position = Vector2( 105, 0 )
@@ -1094,6 +1110,7 @@ custom_fonts/font = ExtResource( 17 )
 custom_styles/disabled = SubResource( 29 )
 disabled = true
 text = "-"
+script = ExtResource( 23 )
 
 [node name="Tail" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 show_behind_parent = true
@@ -1112,6 +1129,7 @@ custom_fonts/font = ExtResource( 17 )
 custom_styles/disabled = SubResource( 29 )
 disabled = true
 text = "-"
+script = ExtResource( 23 )
 
 [node name="RTailButton" type="Button" parent="FishRigidBody/FishRig/Torso/Tail"]
 margin_left = 121.0
@@ -1123,6 +1141,7 @@ custom_fonts/font = ExtResource( 17 )
 custom_styles/disabled = SubResource( 29 )
 disabled = true
 text = "-"
+script = ExtResource( 23 )
 
 [node name="AnimationPlayerTail" type="AnimationPlayer" parent="FishRigidBody/FishRig"]
 autoplay = "Idle"
@@ -1172,14 +1191,24 @@ value = 100.0
 percent_visible = false
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="Camera2D"]
+[node name="Control" type="Control" parent="Camera2D"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 23 )
+
+[node name="Arrow" type="Sprite" parent="Camera2D/Control"]
 position = Vector2( 0, -747 )
 rotation = 3.14159
 texture = ExtResource( 9 )
 script = ExtResource( 10 )
-food_node = NodePath("../../Food")
+food_node = NodePath("../../../Food")
 
-[node name="ForgetTimer" type="TextureProgress" parent="Camera2D"]
+[node name="ForgetTimerParent" type="Control" parent="Camera2D"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 23 )
+
+[node name="ForgetTimer" type="TextureProgress" parent="Camera2D/ForgetTimerParent"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -76.8
