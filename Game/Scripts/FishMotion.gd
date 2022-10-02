@@ -68,20 +68,23 @@ func release_all_buttons():
 		rf_down = false
 	lt_down = false
 	rt_down = false
-
-func shuffle():
-	controls_list.shuffle()
+	
+func set_keys():
 	lf_key = controls_list[0]
 	rf_key = controls_list[1]
 	lt_key = controls_list[2]
 	rt_key = controls_list[3]
 	release_all_buttons()
 	set_control_labels()
+
+func shuffle():
+	controls_list.shuffle()
+	set_keys()
 	
 func on_main_menu():
-	controls_list = [KEY_Q, KEY_W, KEY_O, KEY_P]
+	controls_list = [KEY_O, KEY_P, KEY_Q, KEY_W]
 	reset_state = true
-	shuffle()
+	set_keys()
 	
 func on_start_game():
 	pass

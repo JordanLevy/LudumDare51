@@ -8,11 +8,15 @@ func _ready():
 	GameEvents.connect("GameOver", self, 'on_game_over')
 	GameEvents.connect("FoodEaten", self, "on_food_eaten")
 	
+func show_score():
+	text = str(value)	
+	
 func on_main_menu():
 	value = 0
+	show_score()
 	
 func on_start_game():
-	value = 0
+	show_score()
 	
 func on_game_over():
 	pass
@@ -21,3 +25,4 @@ func on_food_eaten():
 	if value == 0:
 		GameEvents.emit_signal("StartGame")
 	value += 1
+	show_score()

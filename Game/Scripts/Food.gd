@@ -32,4 +32,6 @@ func _on_Area2D_body_entered(body):
 
 func new_position():
 	var new_offset = Vector2(rand_range(-1, 1), rand_range(-1, 1))
+	radius += 50
+	print(radius)
 	return position + new_offset.normalized() * radius
