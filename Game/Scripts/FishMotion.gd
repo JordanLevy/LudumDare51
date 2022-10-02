@@ -10,6 +10,8 @@ export(NodePath) onready var rf_label = get_node(rf_label) as Button
 export(NodePath) onready var lt_label = get_node(lt_label) as Button
 export(NodePath) onready var rt_label = get_node(rt_label) as Button
 
+var reset_state = false
+
 var controls_list : Array
 var lf_key
 var rf_key
@@ -42,8 +44,12 @@ func set_control_labels():
 	rt_label.text = get_key_letter(rt_key)
 	
 func release_all_buttons():
-	lf_down = false
-	rf_down = false
+	if lf_down:
+		release_flipper(-1)
+		lf_down = false
+	if rf_down:
+		release_flipper(1)
+		rf_down = false
 	lt_down = false
 	rt_down = false
 
@@ -57,10 +63,8 @@ func shuffle():
 	set_control_labels()
 	
 func on_main_menu():
-	print("jksdfh")
 	controls_list = [KEY_Q, KEY_W, KEY_O, KEY_P]
-	position = Vector2.ZERO
-	rotation = 0
+	reset_state = true
 	shuffle()
 	
 func on_start_game():
@@ -77,6 +81,16 @@ func _ready():
 	GameEvents.emit_signal("MainMenu")
 
 func _physics_process(delta):
+	camera.global_position = global_position
+	if reset_state:
+		transform = Transform2D(0.0, Vector2(0, 0))
+		linear_velocity = Vector2(0, 0)
+		angular_velocity = 0
+		add_torque(-applied_torque)
+		reset_state = false
+		return
+	if GameEvents.game_state == GameEvents.GAME_OVER:
+		return
 	var flipper_side = 0
 	if lf_down:
 		flipper_side -= 1
@@ -84,7 +98,6 @@ func _physics_process(delta):
 		flipper_side += 1
 	add_torque((200 + log(1 + linear_velocity.length())) * flipper_side * 0.7)
 	add_torque(angular_velocity * -20)
-	camera.global_position = global_position
 	
 func use_flipper(side):
 	if side == -1:
