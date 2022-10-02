@@ -12,9 +12,10 @@ func _ready():
 	
 func on_main_menu():
 	position = start_position
+	visible = true
 	
 func on_start_game():
-	pass
+	visible = true
 	
 func on_game_over():
 	pass

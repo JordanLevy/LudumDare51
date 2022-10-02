@@ -1,50 +1,41 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=50 format=2]
 
-[ext_resource path="res://Scripts/FishMotion.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Background/WaterBG-512.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/HungerBar.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Fish/Fish_Separated.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Food.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/UI/ForgetTimer.png" type="Texture" id=6]
-[ext_resource path="res://Assets/UI/ForgetQuestionMark.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/ForgetTimer.gd" type="Script" id=8]
-[ext_resource path="res://Assets/UI/Arrow.png" type="Texture" id=9]
-[ext_resource path="res://Scripts/Arrow.gd" type="Script" id=10]
-[ext_resource path="res://Scenes/Music.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/Audio/swim_sound_effect1.wav" type="AudioStream" id=12]
-[ext_resource path="res://Scripts/SoundEffect.gd" type="Script" id=13]
-[ext_resource path="res://Assets/Audio/glub_sound_effect2.wav" type="AudioStream" id=14]
-[ext_resource path="res://Assets/Audio/glub_sound_effect1.wav" type="AudioStream" id=15]
-[ext_resource path="res://Assets/Fonts/Arial.tres" type="DynamicFont" id=16]
-[ext_resource path="res://Assets/Fonts/Arial_Controls.tres" type="DynamicFont" id=17]
-[ext_resource path="res://Scripts/Instructions.gd" type="Script" id=18]
-[ext_resource path="res://Assets/Fish/Dead_Eye.png" type="Texture" id=19]
-[ext_resource path="res://Scripts/AppearOnLose.gd" type="Script" id=20]
-[ext_resource path="res://Assets/Audio/swim_sound_effect2.wav" type="AudioStream" id=21]
-[ext_resource path="res://Assets/Audio/swim_sound_effect3.wav" type="AudioStream" id=22]
-[ext_resource path="res://Scripts/DisappearOnLose.gd" type="Script" id=23]
-[ext_resource path="res://Assets/Audio/eat_sound_effect1.wav" type="AudioStream" id=24]
-[ext_resource path="res://Assets/Audio/eat_sound_effect3.wav" type="AudioStream" id=25]
-[ext_resource path="res://Assets/Audio/eat_sound_effect2.wav" type="AudioStream" id=26]
-[ext_resource path="res://Assets/Fonts/Arial_Score.tres" type="DynamicFont" id=27]
-[ext_resource path="res://Assets/Audio/forget_sound_effect2.wav" type="AudioStream" id=28]
-[ext_resource path="res://Assets/Audio/forget_sound_effect1.wav" type="AudioStream" id=29]
-[ext_resource path="res://Scripts/ScoreCounter.gd" type="Script" id=30]
-[ext_resource path="res://Scripts/Title.gd" type="Script" id=31]
-[ext_resource path="res://Assets/Fonts/Title.tres" type="DynamicFont" id=32]
+[ext_resource path="res://Scripts/DisappearOnLose.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/FishMotion.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/AppearOnLose.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Fonts/Arial_Controls.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Fonts/Arial_Score.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Fonts/Arial.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Scenes/Food.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Audio/forget_sound_effect2.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Audio/forget_sound_effect1.wav" type="AudioStream" id=11]
+[ext_resource path="res://Scripts/SoundEffect.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/ScoreCounter.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Instructions.gd" type="Script" id=16]
+[ext_resource path="res://Assets/Audio/eat_sound_effect3.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/Audio/swim_sound_effect3.wav" type="AudioStream" id=20]
+[ext_resource path="res://Assets/Background/WaterBG-512.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Audio/eat_sound_effect1.wav" type="AudioStream" id=22]
+[ext_resource path="res://Assets/Audio/swim_sound_effect1.wav" type="AudioStream" id=24]
+[ext_resource path="res://Assets/Fish/Fish_Separated.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Audio/glub_sound_effect2.wav" type="AudioStream" id=26]
+[ext_resource path="res://Assets/Audio/glub_sound_effect1.wav" type="AudioStream" id=27]
+[ext_resource path="res://Assets/Fish/Dead_Eye.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Audio/swim_sound_effect2.wav" type="AudioStream" id=29]
+[ext_resource path="res://Assets/Audio/eat_sound_effect2.wav" type="AudioStream" id=30]
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 97.1428
 height = 211.714
 
-[sub_resource type="StyleBoxFlat" id=29]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.584314, 0, 1, 0.588235 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=3]
 resource_name = "FlipperLeft"
 length = 0.2
 tracks/0/type = "value"
@@ -70,249 +61,41 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, -20.0 ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "FlipperLeftRelease"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/LFlipper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -73, 0 ), Vector2( -100, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/LFlipper:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -20.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "FlipperRight"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/RFlipper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 105, 0 ), Vector2( 80, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 20.0 ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "FlipperRightRelease"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/RFlipper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 80, 0 ), Vector2( 105, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 20.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "Idle"
-length = 0.2
-step = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/RFlipper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 105, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/LFlipper:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -100, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/LFlipper:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/Tail:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -20, 290 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/Tail:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 15.0 ]
 }
 
 [sub_resource type="Animation" id=4]
-length = 0.001
+resource_name = "FlipperLeftRelease"
+length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/RFlipper:position")
+tracks/0/path = NodePath("Torso/LFlipper:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 105, 0 ) ]
+"values": [ Vector2( -73, 0 ), Vector2( -100, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
+tracks/1/path = NodePath("Torso/LFlipper:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/LFlipper:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -100, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/LFlipper:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/Tail:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 290 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/Tail:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
+"values": [ -20.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=5]
-resource_name = "TailLeft"
+resource_name = "FlipperRight"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/Tail:position")
+tracks/0/path = NodePath("Torso/RFlipper:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -321,10 +104,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 23, 290 ), Vector2( -20, 290 ) ]
+"values": [ Vector2( 105, 0 ), Vector2( 80, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/Tail:rotation_degrees")
+tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -333,11 +116,191 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -15.0, 15.0 ]
+"values": [ 0.0, 20.0 ]
 }
 
 [sub_resource type="Animation" id=6]
-resource_name = "TailRight"
+resource_name = "FlipperRightRelease"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/RFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 80, 0 ), Vector2( 105, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Idle"
+length = 0.2
+step = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/RFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 105, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Torso/LFlipper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -100, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Torso/LFlipper:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Torso/Tail:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -20, 290 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Torso/Tail:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 15.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/RFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 105, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Torso/LFlipper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -100, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Torso/LFlipper:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Torso/Tail:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 290 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Torso/Tail:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "TailLeft"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Torso/Tail:position")
@@ -349,7 +312,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -20, 290 ), Vector2( 23, 290 ) ]
+"values": [ Vector2( 23, 290 ), Vector2( -20, 290 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Torso/Tail:rotation_degrees")
@@ -361,14 +324,14 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 15.0, -15.0 ]
+"values": [ -15.0, 15.0 ]
 }
 
 [sub_resource type="Animation" id=10]
-resource_name = "FlipperLeft"
+resource_name = "TailRight"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/LFlipper:position")
+tracks/0/path = NodePath("Torso/Tail:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -377,10 +340,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -100, 0 ), Vector2( -73, 0 ) ]
+"values": [ Vector2( -20, 290 ), Vector2( 23, 290 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/LFlipper:rotation_degrees")
+tracks/1/path = NodePath("Torso/Tail:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -389,302 +352,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, -20.0 ]
+"values": [ 15.0, -15.0 ]
 }
 
 [sub_resource type="Animation" id=11]
-resource_name = "FlipperLeftRelease"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/LFlipper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -73, 0 ), Vector2( -100, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/LFlipper:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -20.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=12]
-resource_name = "FlipperRight"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/RFlipper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 105, 0 ), Vector2( 80, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 20.0 ]
-}
-
-[sub_resource type="Animation" id=13]
-resource_name = "FlipperRightRelease"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/RFlipper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 80, 0 ), Vector2( 105, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 20.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=14]
-resource_name = "Idle"
-length = 0.2
-step = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/RFlipper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 105, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/LFlipper:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -100, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/LFlipper:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/Tail:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -20, 290 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/Tail:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 15.0 ]
-}
-
-[sub_resource type="Animation" id=15]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/RFlipper:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 105, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Torso/LFlipper:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -100, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Torso/LFlipper:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Torso/Tail:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 290 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Torso/Tail:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=16]
-resource_name = "TailLeft"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/Tail:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 23, 290 ), Vector2( -20, 290 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/Tail:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -15.0, 15.0 ]
-}
-
-[sub_resource type="Animation" id=17]
-resource_name = "TailRight"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Torso/Tail:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -20, 290 ), Vector2( 23, 290 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Torso/Tail:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 15.0, -15.0 ]
-}
-
-[sub_resource type="Animation" id=18]
 resource_name = "FlipperLeft"
 length = 0.2
 tracks/0/type = "value"
@@ -712,7 +383,7 @@ tracks/1/keys = {
 "values": [ 0.0, -20.0 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=12]
 resource_name = "FlipperLeftRelease"
 length = 0.2
 tracks/0/type = "value"
@@ -740,7 +411,7 @@ tracks/1/keys = {
 "values": [ -20.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=13]
 resource_name = "FlipperRight"
 length = 0.2
 tracks/0/type = "value"
@@ -768,7 +439,7 @@ tracks/1/keys = {
 "values": [ 0.0, 20.0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=14]
 resource_name = "FlipperRightRelease"
 length = 0.2
 tracks/0/type = "value"
@@ -796,7 +467,7 @@ tracks/1/keys = {
 "values": [ 20.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=15]
 resource_name = "Idle"
 length = 0.2
 step = 0.8
@@ -873,7 +544,7 @@ tracks/5/keys = {
 "values": [ 15.0 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=16]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Torso/RFlipper:position")
@@ -948,7 +619,7 @@ tracks/5/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=17]
 resource_name = "TailLeft"
 length = 0.2
 tracks/0/type = "value"
@@ -976,7 +647,7 @@ tracks/1/keys = {
 "values": [ -15.0, 15.0 ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=18]
 resource_name = "TailRight"
 length = 0.2
 tracks/0/type = "value"
@@ -1004,12 +675,327 @@ tracks/1/keys = {
 "values": [ 15.0, -15.0 ]
 }
 
-[sub_resource type="StyleBoxFlat" id=28]
-bg_color = Color( 0.94902, 0.792157, 0.168627, 1 )
+[sub_resource type="Animation" id=19]
+resource_name = "FlipperLeft"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/LFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -100, 0 ), Vector2( -73, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/LFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0 ]
+}
 
-[sub_resource type="StyleBoxEmpty" id=27]
+[sub_resource type="Animation" id=20]
+resource_name = "FlipperLeftRelease"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/LFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -73, 0 ), Vector2( -100, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/LFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
 
-[node name="Main" type="Node2D"]
+[sub_resource type="Animation" id=21]
+resource_name = "FlipperRight"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/RFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 105, 0 ), Vector2( 80, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 20.0 ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "FlipperRightRelease"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/RFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 80, 0 ), Vector2( 105, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "Idle"
+length = 0.2
+step = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/RFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 105, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Torso/LFlipper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -100, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Torso/LFlipper:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Torso/Tail:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -20, 290 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Torso/Tail:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 15.0 ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/RFlipper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 105, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/RFlipper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Torso/LFlipper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -100, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Torso/LFlipper:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Torso/Tail:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 290 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Torso/Tail:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "TailLeft"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/Tail:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 23, 290 ), Vector2( -20, 290 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/Tail:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.0, 15.0 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "TailRight"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Torso/Tail:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -20, 290 ), Vector2( 23, 290 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Torso/Tail:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 15.0, -15.0 ]
+}
+
+[node name="Splash" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2( 512, 512 )
@@ -1022,18 +1008,18 @@ motion_scale = Vector2( 0.111, 0.111 )
 motion_mirroring = Vector2( 512, 512 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 2 )
+texture = ExtResource( 21 )
 
 [node name="FishRigidBody" type="RigidBody2D" parent="."]
-position = Vector2( -1900, 450 )
+position = Vector2( -600, 0 )
 rotation = 1.5708
 mass = 0.05
 gravity_scale = 0.0
 can_sleep = false
 linear_damp = 0.3
 angular_damp = 5.0
-script = ExtResource( 1 )
-camera = NodePath("../Camera2D")
+script = ExtResource( 3 )
+camera = NodePath("../FakeCamera")
 anim_tail = NodePath("FishRig/AnimationPlayerTail")
 anim_lf = NodePath("FishRig/AnimationPlayerLF")
 anim_rf = NodePath("FishRig/AnimationPlayerRF")
@@ -1043,77 +1029,77 @@ lt_label = NodePath("FishRig/Torso/Tail/LTailButton")
 rt_label = NodePath("FishRig/Torso/Tail/RTailButton")
 
 [node name="Forget" type="Node2D" parent="FishRigidBody"]
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 
 [node name="ForgetPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/Forget"]
-stream = ExtResource( 29 )
+stream = ExtResource( 11 )
 
 [node name="ForgetPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/Forget"]
-stream = ExtResource( 28 )
+stream = ExtResource( 10 )
 
 [node name="Eat" type="Node2D" parent="FishRigidBody"]
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 
 [node name="EatPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/Eat"]
-stream = ExtResource( 24 )
-
-[node name="EatPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/Eat"]
-stream = ExtResource( 26 )
-
-[node name="EatPlayerC" type="AudioStreamPlayer" parent="FishRigidBody/Eat"]
-stream = ExtResource( 25 )
-
-[node name="Turn" type="Node2D" parent="FishRigidBody"]
-script = ExtResource( 13 )
-
-[node name="TurnPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/Turn"]
 stream = ExtResource( 22 )
 
+[node name="EatPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/Eat"]
+stream = ExtResource( 30 )
+
+[node name="EatPlayerC" type="AudioStreamPlayer" parent="FishRigidBody/Eat"]
+stream = ExtResource( 18 )
+
+[node name="Turn" type="Node2D" parent="FishRigidBody"]
+script = ExtResource( 12 )
+
+[node name="TurnPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/Turn"]
+stream = ExtResource( 20 )
+
 [node name="ThrustLeft" type="Node2D" parent="FishRigidBody"]
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 
 [node name="ThrustPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/ThrustLeft"]
-stream = ExtResource( 12 )
+stream = ExtResource( 24 )
 
 [node name="ThrustRight" type="Node2D" parent="FishRigidBody"]
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 
 [node name="ThrustPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/ThrustRight"]
-stream = ExtResource( 21 )
+stream = ExtResource( 29 )
 
 [node name="Glub" type="Node2D" parent="FishRigidBody"]
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 
 [node name="GlubPlayerA" type="AudioStreamPlayer" parent="FishRigidBody/Glub"]
-stream = ExtResource( 15 )
+stream = ExtResource( 27 )
 
 [node name="GlubPlayerB" type="AudioStreamPlayer" parent="FishRigidBody/Glub"]
-stream = ExtResource( 14 )
+stream = ExtResource( 26 )
 
 [node name="FishCollider" type="CollisionShape2D" parent="FishRigidBody"]
 position = Vector2( 0, -80 )
-shape = SubResource( 7 )
+shape = SubResource( 1 )
 
 [node name="FishRig" type="Node2D" parent="FishRigidBody"]
 
 [node name="Torso" type="Sprite" parent="FishRigidBody/FishRig"]
-texture = ExtResource( 4 )
+texture = ExtResource( 25 )
 region_enabled = true
 region_rect = Rect2( 410, 54, 200, 550 )
 
 [node name="LEye" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 position = Vector2( -67, -193 )
-texture = ExtResource( 19 )
-script = ExtResource( 20 )
+texture = ExtResource( 28 )
+script = ExtResource( 4 )
 
 [node name="REye" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 position = Vector2( 74, -193 )
-texture = ExtResource( 19 )
-script = ExtResource( 20 )
+texture = ExtResource( 28 )
+script = ExtResource( 4 )
 
 [node name="LFlipper" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 position = Vector2( -100, 0 )
-texture = ExtResource( 4 )
+texture = ExtResource( 25 )
 region_enabled = true
 region_rect = Rect2( 750, 330, 150, 155 )
 
@@ -1123,15 +1109,15 @@ margin_top = 86.0
 margin_right = -43.0
 margin_bottom = 171.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 0.784314 )
-custom_fonts/font = ExtResource( 17 )
-custom_styles/disabled = SubResource( 29 )
+custom_fonts/font = ExtResource( 5 )
+custom_styles/disabled = SubResource( 2 )
 disabled = true
 text = "-"
-script = ExtResource( 23 )
+script = ExtResource( 2 )
 
 [node name="RFlipper" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 position = Vector2( 105, 0 )
-texture = ExtResource( 4 )
+texture = ExtResource( 25 )
 region_enabled = true
 region_rect = Rect2( 750, 95, 130, 155 )
 
@@ -1141,16 +1127,16 @@ margin_top = 85.0
 margin_right = 101.0
 margin_bottom = 170.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 0.784314 )
-custom_fonts/font = ExtResource( 17 )
-custom_styles/disabled = SubResource( 29 )
+custom_fonts/font = ExtResource( 5 )
+custom_styles/disabled = SubResource( 2 )
 disabled = true
 text = "-"
-script = ExtResource( 23 )
+script = ExtResource( 2 )
 
 [node name="Tail" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 show_behind_parent = true
 position = Vector2( 0, 290 )
-texture = ExtResource( 4 )
+texture = ExtResource( 25 )
 region_enabled = true
 region_rect = Rect2( 83, 179, 215, 330 )
 
@@ -1160,11 +1146,11 @@ margin_top = 106.0
 margin_right = -120.0
 margin_bottom = 191.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 0.784314 )
-custom_fonts/font = ExtResource( 17 )
-custom_styles/disabled = SubResource( 29 )
+custom_fonts/font = ExtResource( 5 )
+custom_styles/disabled = SubResource( 2 )
 disabled = true
 text = "-"
-script = ExtResource( 23 )
+script = ExtResource( 2 )
 
 [node name="RTailButton" type="Button" parent="FishRigidBody/FishRig/Torso/Tail"]
 margin_left = 121.0
@@ -1172,56 +1158,54 @@ margin_top = 110.0
 margin_right = 199.0
 margin_bottom = 195.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 0.784314 )
-custom_fonts/font = ExtResource( 17 )
-custom_styles/disabled = SubResource( 29 )
+custom_fonts/font = ExtResource( 5 )
+custom_styles/disabled = SubResource( 2 )
 disabled = true
 text = "-"
-script = ExtResource( 23 )
+script = ExtResource( 2 )
 
 [node name="AnimationPlayerTail" type="AnimationPlayer" parent="FishRigidBody/FishRig"]
 autoplay = "Idle"
-anims/FlipperLeft = SubResource( 1 )
-anims/FlipperLeftRelease = SubResource( 8 )
-anims/FlipperRight = SubResource( 2 )
-anims/FlipperRightRelease = SubResource( 9 )
-anims/Idle = SubResource( 3 )
-anims/RESET = SubResource( 4 )
-anims/TailLeft = SubResource( 5 )
-anims/TailRight = SubResource( 6 )
+anims/FlipperLeft = SubResource( 3 )
+anims/FlipperLeftRelease = SubResource( 4 )
+anims/FlipperRight = SubResource( 5 )
+anims/FlipperRightRelease = SubResource( 6 )
+anims/Idle = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+anims/TailLeft = SubResource( 9 )
+anims/TailRight = SubResource( 10 )
 
 [node name="AnimationPlayerLF" type="AnimationPlayer" parent="FishRigidBody/FishRig"]
 autoplay = "Idle"
-anims/FlipperLeft = SubResource( 10 )
-anims/FlipperLeftRelease = SubResource( 11 )
-anims/FlipperRight = SubResource( 12 )
-anims/FlipperRightRelease = SubResource( 13 )
-anims/Idle = SubResource( 14 )
-anims/RESET = SubResource( 15 )
-anims/TailLeft = SubResource( 16 )
-anims/TailRight = SubResource( 17 )
+anims/FlipperLeft = SubResource( 11 )
+anims/FlipperLeftRelease = SubResource( 12 )
+anims/FlipperRight = SubResource( 13 )
+anims/FlipperRightRelease = SubResource( 14 )
+anims/Idle = SubResource( 15 )
+anims/RESET = SubResource( 16 )
+anims/TailLeft = SubResource( 17 )
+anims/TailRight = SubResource( 18 )
 
 [node name="AnimationPlayerRF" type="AnimationPlayer" parent="FishRigidBody/FishRig"]
 autoplay = "Idle"
-anims/FlipperLeft = SubResource( 18 )
-anims/FlipperLeftRelease = SubResource( 19 )
-anims/FlipperRight = SubResource( 20 )
-anims/FlipperRightRelease = SubResource( 21 )
-anims/Idle = SubResource( 22 )
-anims/RESET = SubResource( 23 )
-anims/TailLeft = SubResource( 24 )
-anims/TailRight = SubResource( 25 )
+anims/FlipperLeft = SubResource( 19 )
+anims/FlipperLeftRelease = SubResource( 20 )
+anims/FlipperRight = SubResource( 21 )
+anims/FlipperRightRelease = SubResource( 22 )
+anims/Idle = SubResource( 23 )
+anims/RESET = SubResource( 24 )
+anims/TailLeft = SubResource( 25 )
+anims/TailRight = SubResource( 26 )
 
-[node name="Food" parent="." instance=ExtResource( 5 )]
-visible = false
+[node name="Food" parent="." instance=ExtResource( 8 )]
 position = Vector2( -456, -565 )
 
 [node name="Instructions" type="Control" parent="Food"]
-visible = false
 margin_left = 456.0
 margin_top = 565.0
 margin_right = 496.0
 margin_bottom = 605.0
-script = ExtResource( 18 )
+script = ExtResource( 16 )
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="Food/Instructions"]
 modulate = Color( 0, 0, 0, 1 )
@@ -1229,159 +1213,22 @@ margin_left = -874.0
 margin_top = -475.0
 margin_right = -6.0
 margin_bottom = -387.0
-custom_fonts/normal_font = ExtResource( 16 )
+custom_fonts/normal_font = ExtResource( 7 )
 text = "Eat this food to start the game"
+
+[node name="FakeCamera" type="Camera2D" parent="."]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 3, 3 )
 
 [node name="ScoreLabel" type="RichTextLabel" parent="Camera2D"]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
 margin_left = -1309.0
 margin_top = -865.0
 margin_right = -852.0
 margin_bottom = -631.0
-custom_fonts/normal_font = ExtResource( 27 )
+custom_fonts/normal_font = ExtResource( 6 )
 text = "0"
-script = ExtResource( 30 )
-
-[node name="Title" type="RichTextLabel" parent="Camera2D"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -1533.0
-margin_top = 904.0
-margin_right = 1535.0
-margin_bottom = 1495.0
-custom_fonts/normal_font = ExtResource( 32 )
-bbcode_enabled = true
-bbcode_text = "[center]GLUB?[/center]"
-text = "GLUB?"
-script = ExtResource( 31 )
-
-[node name="HungerBar" type="ProgressBar" parent="Camera2D"]
-visible = false
-margin_left = -1544.0
-margin_top = 796.0
-margin_right = 1530.0
-margin_bottom = 888.0
-custom_styles/fg = SubResource( 28 )
-custom_styles/bg = SubResource( 27 )
-value = 100.0
-percent_visible = false
-script = ExtResource( 3 )
-
-[node name="Control" type="Control" parent="Camera2D"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 23 )
-
-[node name="Arrow" type="Sprite" parent="Camera2D/Control"]
-position = Vector2( 0, -747 )
-rotation = 3.14159
-texture = ExtResource( 9 )
-script = ExtResource( 10 )
-food_node = NodePath("../../../Food")
-
-[node name="ForgetTimerParent" type="Control" parent="Camera2D"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 23 )
-
-[node name="ForgetTimer" type="TextureProgress" parent="Camera2D/ForgetTimerParent"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -76.8
-margin_top = -76.8
-margin_right = 435.2
-margin_bottom = 435.2
-rect_scale = Vector2( 0.3, 0.3 )
-step = 0.01
-value = 100.0
-texture_over = ExtResource( 7 )
-texture_progress = ExtResource( 6 )
-fill_mode = 4
-tint_under = Color( 0.223529, 0.223529, 0.223529, 0.784314 )
-tint_over = Color( 0.192157, 0.192157, 0.192157, 0.588235 )
-tint_progress = Color( 1, 1, 1, 0.588235 )
-script = ExtResource( 8 )
-
-[node name="Instructions" type="Control" parent="Camera2D"]
-visible = false
-margin_left = 456.0
-margin_top = 565.0
-margin_right = 496.0
-margin_bottom = 605.0
-script = ExtResource( 18 )
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D/Instructions"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -194.0
-margin_top = -1211.0
-margin_right = 973.0
-margin_bottom = -913.0
-custom_fonts/normal_font = ExtResource( 16 )
-text = "Every 10 seconds, you forget how to swim. When this happens, the controls randomly swap between the Q, W, O, and P keys.
-"
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="Camera2D/Instructions"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -169.0
-margin_top = -776.0
-margin_right = 436.0
-margin_bottom = -684.0
-custom_fonts/normal_font = ExtResource( 16 )
-text = "Press [Space] to glub"
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="Camera2D/Instructions"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -199.0
-margin_top = -221.0
-margin_right = 506.0
-margin_bottom = -51.0
-custom_fonts/normal_font = ExtResource( 16 )
-text = "Move forward by wiggling
-your tail back and forth"
-
-[node name="RichTextLabel5" type="RichTextLabel" parent="Camera2D/Instructions"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -164.0
-margin_top = -475.0
-margin_right = 416.0
-margin_bottom = -370.0
-custom_fonts/normal_font = ExtResource( 16 )
-text = "Use your fins to turn"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Instructions"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -1255.0
-margin_top = -1352.0
-margin_right = -551.0
-margin_bottom = -1264.0
-custom_fonts/normal_font = ExtResource( 16 )
-text = "You need food to survive"
-
-[node name="GameOver" type="Control" parent="Camera2D"]
-visible = false
-margin_left = 456.0
-margin_top = 565.0
-margin_right = 496.0
-margin_bottom = 605.0
-script = ExtResource( 20 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/GameOver"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -1992.0
-margin_top = 23.0
-margin_right = 1072.0
-margin_bottom = 196.0
-custom_fonts/normal_font = ExtResource( 16 )
-bbcode_enabled = true
-bbcode_text = "[center]You starved.
-Press [Space] to try again.[/center]"
-text = "You starved.
-Press [Space] to try again."
-
-[node name="Music" parent="." instance=ExtResource( 11 )]
+script = ExtResource( 13 )

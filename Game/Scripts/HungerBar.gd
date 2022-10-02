@@ -9,10 +9,12 @@ func _ready():
 	GameEvents.connect("FoodEaten", self, 'on_food_eaten')
 
 func on_main_menu():
-	value = 0
+	value = 100
+	visible = true
 	
 func on_start_game():
 	value = 100
+	visible = true
 	
 func on_game_over():
 	pass

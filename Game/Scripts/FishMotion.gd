@@ -11,7 +11,13 @@ export(NodePath) onready var rt_label = get_node(rt_label) as Button
 
 var reset_state = false
 
-var controls_list : Array
+var splash_tail_timer = null
+var num_splash_tail = 0
+var done_splash = false
+
+var camera_follow = false
+
+var controls_list : Array = [KEY_O, KEY_P, KEY_Q, KEY_W]
 var lf_key
 var rf_key
 var lt_key
@@ -81,7 +87,22 @@ func shuffle():
 	controls_list.shuffle()
 	set_keys()
 	
+func on_splash_screen():
+	camera_follow = false
+	controls_list = [KEY_O, KEY_P, KEY_Q, KEY_W]
+	reset_state = false
+	#set_keys()
+	
+	splash_tail_timer = Timer.new()
+	add_child(splash_tail_timer)
+
+	splash_tail_timer.connect("timeout", self, "_onsplash_tail_timer_timeout")
+	splash_tail_timer.set_wait_time(0.25)
+	splash_tail_timer.set_one_shot(false) # Make sure it loops
+	splash_tail_timer.start()
+	
 func on_main_menu():
+	camera_follow = true
 	controls_list = [KEY_O, KEY_P, KEY_Q, KEY_W]
 	reset_state = true
 	set_keys()
@@ -93,14 +114,41 @@ func on_game_over():
 	release_all_buttons()
 
 func _ready():
+	GameEvents.connect("SplashScreen", self, 'on_splash_screen')
 	GameEvents.connect("MainMenu", self, 'on_main_menu')
 	GameEvents.connect("StartGame", self, 'on_start_game')
 	GameEvents.connect("GameOver", self, 'on_game_over')
 	GameEvents.connect("ForgetControls", self, "shuffle")
-	GameEvents.emit_signal("MainMenu")
+	GameEvents.emit_signal("SplashScreen")
+
+func _onsplash_tail_timer_timeout():
+	num_splash_tail += 1
+	if not done_splash:
+		if tail_side == -1:
+			thrust(1)
+		elif tail_side == 1:
+			thrust(-1)
+	if num_splash_tail == 3:
+		lf_down = true
+		use_flipper(-1)
+	if num_splash_tail == 7:
+		lf_down = false
+		release_flipper(-1)
+	if num_splash_tail == 8:
+		rf_down = true
+		use_flipper(1)
+	if num_splash_tail == 12:
+		rf_down = false
+		release_flipper(1)
+	if num_splash_tail >= 16:
+		done_splash = true
+	if num_splash_tail >= 18 && done_splash:
+		splash_tail_timer.stop()
+		GameEvents.emit_signal("MainMenu")
 
 func _physics_process(delta):
-	camera.global_position = global_position
+	if camera_follow:
+		camera.global_position = global_position
 	if reset_state:
 		transform = Transform2D(0.0, Vector2(0, 0))
 		linear_velocity = Vector2(0, 0)
@@ -178,7 +226,14 @@ func game_input(event):
 			rt_down = false
 
 func _input(event):
-	if GameEvents.game_state == GameEvents.MAIN_MENU:
+	if GameEvents.game_state == GameEvents.SPLASH_SCREEN:
+		if event is InputEventKey and event.pressed:
+			if event.scancode == KEY_SPACE:
+				thrust(-1)
+				splash_tail_timer.stop()
+				GameEvents.emit_signal("MainMenu")
+		game_input(event)
+	elif GameEvents.game_state == GameEvents.MAIN_MENU:
 		game_input(event)
 	elif GameEvents.game_state == GameEvents.PLAYING:
 		game_input(event)
