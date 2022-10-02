@@ -1013,7 +1013,7 @@ texture = ExtResource( 2 )
 [node name="Food" parent="." instance=ExtResource( 5 )]
 
 [node name="FishRigidBody" type="RigidBody2D" parent="."]
-mass = 0.102041
+mass = 0.05
 gravity_scale = 0.0
 can_sleep = false
 linear_damp = 0.3
