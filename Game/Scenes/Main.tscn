@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Scripts/FishMotion.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Background/WaterBG-512.png" type="Texture" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Scripts/ScoreCounter.gd" type="Script" id=30]
 [ext_resource path="res://Scripts/Title.gd" type="Script" id=31]
 [ext_resource path="res://Assets/Fonts/Title.tres" type="DynamicFont" id=32]
+[ext_resource path="res://Scripts/ControlsUI.gd" type="Script" id=33]
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 97.1428
@@ -1127,7 +1128,7 @@ custom_fonts/font = ExtResource( 17 )
 custom_styles/disabled = SubResource( 29 )
 disabled = true
 text = "-"
-script = ExtResource( 23 )
+script = ExtResource( 33 )
 
 [node name="RFlipper" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 position = Vector2( 105, 0 )
@@ -1145,7 +1146,7 @@ custom_fonts/font = ExtResource( 17 )
 custom_styles/disabled = SubResource( 29 )
 disabled = true
 text = "-"
-script = ExtResource( 23 )
+script = ExtResource( 33 )
 
 [node name="Tail" type="Sprite" parent="FishRigidBody/FishRig/Torso"]
 show_behind_parent = true
@@ -1164,7 +1165,7 @@ custom_fonts/font = ExtResource( 17 )
 custom_styles/disabled = SubResource( 29 )
 disabled = true
 text = "-"
-script = ExtResource( 23 )
+script = ExtResource( 33 )
 
 [node name="RTailButton" type="Button" parent="FishRigidBody/FishRig/Torso/Tail"]
 margin_left = 121.0
@@ -1176,7 +1177,7 @@ custom_fonts/font = ExtResource( 17 )
 custom_styles/disabled = SubResource( 29 )
 disabled = true
 text = "-"
-script = ExtResource( 23 )
+script = ExtResource( 33 )
 
 [node name="AnimationPlayerTail" type="AnimationPlayer" parent="FishRigidBody/FishRig"]
 autoplay = "Idle"
@@ -1239,20 +1240,20 @@ zoom = Vector2( 3, 3 )
 [node name="ScoreLabel" type="RichTextLabel" parent="Camera2D"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -1309.0
-margin_top = -865.0
-margin_right = -852.0
-margin_bottom = -631.0
+margin_left = -1432.0
+margin_top = -862.0
+margin_right = -975.0
+margin_bottom = -628.0
 custom_fonts/normal_font = ExtResource( 27 )
 text = "0"
 script = ExtResource( 30 )
 
 [node name="Title" type="RichTextLabel" parent="Camera2D"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 0.709804, 0.85098, 1, 1 )
 margin_left = -1533.0
 margin_top = 904.0
 margin_right = 1535.0
-margin_bottom = 1495.0
+margin_bottom = 1598.0
 custom_fonts/normal_font = ExtResource( 32 )
 bbcode_enabled = true
 bbcode_text = "[center]GLUB?[/center]"

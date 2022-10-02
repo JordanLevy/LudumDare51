@@ -12,6 +12,7 @@ func show_score():
 	text = str(value)	
 	
 func on_main_menu():
+	visible = true
 	value = 0
 	show_score()
 	
