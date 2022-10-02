@@ -1,9 +1,22 @@
 extends Node2D
 
 var radius = 2000
+var start_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	start_position = position
+	GameEvents.connect("MainMenu", self, 'on_main_menu')
+	GameEvents.connect("StartGame", self, 'on_start_game')
+	GameEvents.connect("GameOver", self, 'on_game_over')
+	
+func on_main_menu():
+	position = start_position
+	
+func on_start_game():
+	pass
+	
+func on_game_over():
 	pass
 
 func _on_Area2D_body_entered(body):
